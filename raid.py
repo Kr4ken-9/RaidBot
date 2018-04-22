@@ -16,7 +16,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('raid'):
+    if message.content == 'raid':
         await raid(message)
 
 async def hubbub(message):
@@ -37,7 +37,7 @@ async def large(channel):
     await client.send_message(channel, '\u2800' + ('\n' * 1991) + '\u2800')
 
 async def raid(message):
-    while not client.is_closed:
+    while True:
         await hubbub(message)
         await asyncio.sleep(1)
         await large(message.channel)
