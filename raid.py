@@ -22,7 +22,8 @@ async def on_message(message):
 async def hubbub(message):
     mention = ""
 
-    for user in message.server.members:
+    members = message.server.members
+    for user in members:
         if user.bot:
             continue
 
@@ -30,6 +31,7 @@ async def hubbub(message):
 
         if len(mention) >= 1977:
             await client.send_message(message.channel, mention)
+            mention = ""
 
     await client.send_message(message.channel, mention)
 
