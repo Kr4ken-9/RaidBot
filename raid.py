@@ -27,7 +27,7 @@ async def on_message(message):
 async def hubbub(message):
     mention = ""
 
-    members = dict(message.server.members)
+    members = list(message.server.members)
     for user in members:
         if user.bot:
             continue
